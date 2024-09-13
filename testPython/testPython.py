@@ -58,10 +58,26 @@ while(not isTrained):
 for el in trainingSample:
     ax.scatter3D(el["x"][0],el["x"][1],y[el["id"]])
 
+epoxa -=1
+x1 = np.linspace(-1, 1, 5)
+x2 = np.linspace(-1, 1, 5)
+x1grid, x2grid = np.meshgrid(x1,x2)
+T1 = [T[epoxa],T[epoxa],T[epoxa],T[epoxa],T[epoxa]]
+ygrid = x1grid*w[epoxa][0] + x2grid*w[epoxa][1] - T1
+ax.plot_wireframe(x1grid, x2grid, ygrid)
+y0grid =  ygrid*0
+ax.plot_wireframe(x1grid, x2grid, y0grid, color="red")
 
-z = np.arange(-1,1,0.05)
-x = np.arange(-1,1,0.05)
-xgrid, ygrid = np.meshgrid(x,z)
-zgrid = xgrid*w[epoxa-1][0] + ygrid*w[epoxa-1][1]
-ax.plot_wireframe(xgrid, ygrid, zgrid)
+
+y = np.linspace(-1, 1, 5)
+x1grid, ygrid = np.meshgrid(x1,y)
+x2grid = (T1 - x1grid * w[epoxa][0]) / w[epoxa][1]
+ax.plot_wireframe(x1grid, x2grid, ygrid, color="green")
+
+
+
+
+ax.set_xlabel('x1', fontsize=12)
+ax.set_ylabel('x2', fontsize=12)
+ax.set_zlabel('y', fontsize=12)
 plt.show()
