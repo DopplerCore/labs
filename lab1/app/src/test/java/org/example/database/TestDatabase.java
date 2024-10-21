@@ -8,20 +8,32 @@ import java.sql.Statement;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class TestDatabase {
-    public static void main(String[] args) {
+    private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
+    private static final String USERNAME = "postgres";
+    private static final String PASSWORD = "77885449";
+
+    private static Connection connection;
+
+    static {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:mem:testdb", "sa", "");
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test void testDatabase() {
+        try {
             Statement statement = connection.createStatement();
-            statement.execute("CREATE TABLE poks (id INT, name VARCHAR, bio VARCHAR, adress VARCHAR, phone VARCHAR)");
-            statement.execute("INSERT INTO poks (id, name, bio, adress, phone) VALUES (1, 'John Doe', 'John Doe', 'John Doe', 'John Doe')");
-            System.out.println("Table created and data inserted!");
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM poks");
-            resultSet.next();
-            Assertions.assertEquals("John Doe", resultSet.getString(2));
-            System.out.println("ans :");
-            System.out.println(resultSet.getString(2));
+            Assertions.assertNotNull(statement.execute("CREATE TABLE users (id INT, name VARCHAR, bio VARCHAR, adress VARCHAR, phone VARCHAR)"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

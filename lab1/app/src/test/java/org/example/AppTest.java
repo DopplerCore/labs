@@ -15,24 +15,25 @@ import java.sql.Statement;
 import org.junit.jupiter.api.Assertions;
 
 class AppTest {
-    Connection connection = DriverManager.getConnection("jdbc:h2:mem:testdb", "sa", "");
-    Statement statement = connection.createStatement();
+    
 
 
     @Test void testDatabase() {
-        App classUnderTest = new App();
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:mem:testdb", "sa", "");
+            Statement statement = connection.createStatement();
+            statement.execute("CREATE TABLE poks (id INT, name VARCHAR, bio VARCHAR, adress VARCHAR, phone VARCHAR)");
+            statement.execute("INSERT INTO poks (id, name, bio, adress, phone) VALUES (1, 'John Doe', 'John Doe', 'John Doe', 'John Doe')");
+            System.out.println("Table created and data inserted!");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM poks");
+            resultSet.next();
+            Assertions.assertEquals("John Doe", resultSet.getString(2));
+            System.out.println("ans :");
+            System.out.println(resultSet.getString(2));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    try {
-        statement.execute("CREATE TABLE poks (id INT, name VARCHAR, bio VARCHAR, adress VARCHAR, phone VARCHAR)");
-        statement.execute("INSERT INTO poks (id, name, bio, adress, phone) VALUES (1, 'John Doe', 'John Doe', 'John Doe', 'John Doe')");
-        System.out.println("Table created and data inserted!");
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM poks");
-        resultSet.next();
-        Assertions.assertEquals("John Doe", resultSet.getString(2));
-        System.out.println("ans :");
-        System.out.println(resultSet.getString(2));
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
+
 }
