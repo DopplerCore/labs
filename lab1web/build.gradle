@@ -1,0 +1,23 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'by.caster'
+version = '1.0-SNAPSHOT'
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+dependencies {
+    implementation 'org.postgresql:postgresql:42.7.4'
+    api project(":DAO")
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

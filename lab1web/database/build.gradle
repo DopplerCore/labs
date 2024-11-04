@@ -1,0 +1,18 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'by.caster'
+version = '1.0-SNAPSHOT'
+
+dependencies {
+    implementation 'com.h2database:h2:1.4.200'
+    implementation 'org.postgresql:postgresql:42.7.4'
+    api project(":core")
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

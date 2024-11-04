@@ -1,0 +1,5 @@
+rootProject.name = 'lab1web'
+include 'database'
+include 'core'
+include 'DAO'
+
