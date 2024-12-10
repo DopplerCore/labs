@@ -1,0 +1,16 @@
+group 'com.lab2web'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.lab2web.Sample'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.hibernate:hibernate-core:6.4.2.Final'
+    implementation 'org.postgresql:postgresql:42.7.1'
+}

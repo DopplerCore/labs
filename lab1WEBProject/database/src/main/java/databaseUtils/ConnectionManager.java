@@ -10,20 +10,20 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public final class ConnectionManager {
-//    private static final String URL_KEY = "testdb.url";
-//    private static final String USERNAME_KEY = "testdb.username";
-//    private static final String PASSWORD_KEY = "testdb.password";
-//    private static final int DEFAULT_POOL_SIZE = 10;
-//    private static final String POOL_SIZE_KEY = "testdb.pool.size";
-//    private static BlockingQueue<Connection> pool;
-
-
-    private static final String URL_KEY = "db.url";
-    private static final String USERNAME_KEY = "db.username";
-    private static final String PASSWORD_KEY = "db.password";
+    private static final String URL_KEY = "testdb.url";
+    private static final String USERNAME_KEY = "testdb.username";
+    private static final String PASSWORD_KEY = "testdb.password";
     private static final int DEFAULT_POOL_SIZE = 10;
-    private static final String POOL_SIZE_KEY = "db.pool.size";
+    private static final String POOL_SIZE_KEY = "testdb.pool.size";
     private static BlockingQueue<Connection> pool;
+
+
+//    private static final String URL_KEY = "db.url";
+//    private static final String USERNAME_KEY = "db.username";
+//    private static final String PASSWORD_KEY = "db.password";
+//    private static final int DEFAULT_POOL_SIZE = 10;
+//    private static final String POOL_SIZE_KEY = "db.pool.size";
+//    private static BlockingQueue<Connection> pool;
 
     static {
         initConnectionPool();

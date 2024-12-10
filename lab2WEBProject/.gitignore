@@ -1,0 +1,14 @@
+*~
+.gradle
+build/
+.DS_Store
+certs
+.classpath
+.project
+.settings
+bin/
+
+# Build artifacts
+gradle/
+gradlew
+gradlew.bat
