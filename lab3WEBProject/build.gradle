@@ -1,0 +1,20 @@
+group 'com.lab3web'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.lab3web.Sample'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework:spring-core:6.2.1'
+    implementation 'org.springframework:spring-context:6.2.1'
+    implementation 'org.springframework:spring-orm:6.2.1'
+
+    implementation 'org.postgresql:postgresql:42.7.1'
+    implementation 'org.hibernate:hibernate-core:6.4.2.Final'
+}
