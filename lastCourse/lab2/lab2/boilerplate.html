@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <form action="http://bstu.byyyyy" method="get" oninput="result.value='Логин: '+login.value+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&shy;Пароль: '+password.value+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&shy;Пункт назначения: '+place.value+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&shy;Способ: '+method.value+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&shy;Пожелания: '+text.value+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&shy;Фото: '+file.value+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&shy;Дата: '+date.value" >
+            <div class="formContainer">
+                <div class="mainHead">Форма запроса путёвки</div>
+                <div>The name and photo associated with your Google account will be recorded when you upload files and submit this form. Not spas.work@gmail.com?</div>
+                <div class="required">*Required</div>
+                <!-- ПЕРВОЕ ПОЛЕ: ВВОДА ПАРОЛЯ -->
+                <div class="head"><label for="login">Пожалуйста введите ваш логин </label><span class="required">*</span></div>
+                <div><input class="inputPassword" name="login" type="text" placeholder="логин" required></div>
+                <!-- ВТОРОЕ ПОЛЕ: ВВОДА ЛОГИНА -->
+                <div class="head"><label for="password">Пожалуйста введите ваш пароль </label><span class="required">*</span></div>
+                <div><input class="inputLogin" name="password" type="password" placeholder="Пароль" required></div>
+                <!-- ТРЕТЬЕ ПОЛЕ: ВВОДА РАЙОНА СОСРЕДОТОЧЕНИЯ -->
+                <div class="head">Куда бы вы хотели отправиться? <span class="required">*</span></div>
+                <div><label><input class="inputLocation" type="radio" name="place" value="Казахстан" required checked><span>Казахстан</span></label></div>
+                <div><label><input class="inputLocation" type="radio" name="place" value="Северный полюс"><span>Северный полюс</span></label></div>                       
+                <div><label><input class="inputLocation" type="radio" name="place" value="Южный полюс"><span>Южный полюс</span></label></div>
+                <div><label><input class="inputLocation" type="radio" name="place" value="Роиссия"><span>Роиссия</span></label></div>
+                <div><label><input class="inputLocation" type="radio" name="place" value="Магадан"><span>Магадан</span></label></div>
+                <div><label><input class="inputLocation" type="radio" name="place" value="Другое"><span>Другое</span><input class="inputOtherLocation" placeholder="Место" pattern="^[А-Яа-яЁё\s]+$" type="text"></label></div>
+                <!-- ЧЕТВЁРТОЕ ПОЛЕ: ВВОДА СПОСОБА ПЕРЕДВИЖЕНИЯ -->
+                <div class="head"><label for="travelMode">Каким способом хотите отправиться? </label><span class="required">*</span></div>
+                <div><input class="inputTravelMode" name="travelMode" type="text" list="travelModes" placeholder="Выбрать" required></div>
+                <datalist id="travelModes">
+                    <option value="Повозкой">
+                    <option value="Голопом">
+                    <option value="Ракетой">
+                    <option value="Космолётом">
+                    <option value="Ослом">
+                    <option value="Пешком">
+                </datalist>
+                <!-- ПЯТОЕ ПОЛЕ: ВВОДА ПОЖЕЛАНИЙ -->
+                <div class="head"><label for="text">Пожалуйста опишите(не менее 50 символов) ваши пожелания к гиду </label><span class="required">*</span></div>
+                <div><textarea class="textareaWishes" name="text" minlength="50" maxlength="150" placeholder="Пожелания"></textarea></div>
+                <!-- ШЕСТОЕ ПОЛЕ: ВВОДА ДОПОЛНИТЕЛЬНЫХ УСЛУГ -->
+                <div class="head">Дополнительные услуги</div>
+                <div><label><input class="inputService" type="checkbox" name="bard" value="Бард"><span>Бард</span></label></div>
+                <div><label><input class="inputService" type="checkbox" name="shipwreck" value="Кораблекрушение"><span>Кораблекрушение</span></label></div>                       
+                <div><label><input class="inputService" type="checkbox" name="aliens" value="Нападение инопланетян"><span>Нападение инопланетян</span></label></div>
+                <div><label><input class="inputService" type="checkbox" name="aveMaria" value="Паломничество"><span>Паломничество</span></label></div>
+                <!-- СЕДЬМОЕ ПОЛЕ: ВВОДА ФОТО ПАСПОРТА -->
+                <div class="head"><label for="file">Пожалуйста предоставьте фото паспорта </label><span class="required">*</span></div>
+                <div><input type="file" name="file" required></div>
+                <!-- ВОСЬМОЕ ПОЛЕ: ВВОДА ДАТЫ ВЫЛЕТА -->
+                <div class="head">Дата вылета <span class="required">*</span></div>
+                <div class="divGrey"><label for="date">Дата </label></div>
+                <div><input type="date" name="date" required></div>
+
+                <div class="head">Итого</div>
+                <div><output name="result"></output></div>
+                <div><input class="buttonSubmit" type="submit" value="ОТПРАВИТЬ"></div>
+                <div class="divGrey">Никогда не отправляйте пароли через формы Седко Максима</div>
+            </div>
+        </form>
+        <footer>
+            <div class="firstFarce">Контент создан и одобрен Седко Максимом. Сообщить о нарушении – Условия использования – Дополнительные условия</div>
+            <div class="secondFarce">Формы Седко Максима</div>
+        </footer>
+    </body>
+</html>
